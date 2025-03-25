@@ -1,0 +1,110 @@
+[Version]
+Signature="$Windows NT$"
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+Provider=%OEM%
+DriverVer=09/13/2019,8.00.1329.6884
+CatalogFile=hpmoC12A_x86.cat
+[Manufacturer]
+%OEM%=OEM,NTx86,NTamd64
+[OEM.NTx86]
+%PRINTER1%=INSTALL_SECTION1,USBPRINT\HPHP_LaserJet_Pro_M420a0
+%PRINTER1%=INSTALL_SECTION1,WSDPRINT\HPHP_LaserJet_Pro_M420a0
+%PRINTER1%=INSTALL_SECTION1,HPHP_LaserJet_Pro_M420a0
+%PRINTER1%=INSTALL_SECTION1,MF\LaserJet_Pro_M404-M405&WSD&IP_PRINT
+[INSTALL_SECTION1]
+CopyFiles=FILES_PRINT1,COMMON_FILES_DRIVER_COPY,MSCORE_COPY,COINST_FILES,LM_FILES,LMDRV_FILES
+DriverFile=mxdwdrv.dll
+ConfigFile=hpb6sy6536_x86gui.dll
+DataFile=hpmoC12A_x86Cfg.xml
+FeatureScore=0x20
+CopyINF=HPRestStub.inf
+LanguageMonitor="HP c12a Status Monitor,hpinkstsc12aLM.dll"
+[FILES_PRINT1]
+hpmoC12A_x86PipelineConfig.xml
+hpmoC12A_x86Cfg.xml
+hpmoC12A_x86.ini
+[COMMON_FILES_DRIVER_COPY]
+hpb6sy6536_x86xps.dll
+hpb6sy6536_x86hybrasto.dll
+hpb6sy6536_x86gui.dll
+hpb6sy6536_x86enus.dll
+hpb6sy6536_x86dlg.dll
+hpb6sy6536_x86help.cab
+hpb6sy6536datamap.xml
+hpb6sy6536x86_buio.dll
+hpb6sy6536x86_buiodm.dll
+hpb6sy6536x86_coins.dll
+hpb6sy6536_x86hpfime53.dll
+hpb6sy6536_x86EasyColorPrefilter.dll
+hpb6sy6536_x86PdsmqConnector.exe
+hpb6sy6536_x86PdsmqConnector.PdsmqConfig.xml
+hpb6sy6536_x86ewdm.xml
+[MSCORE_COPY]
+mxdwdrv.dll,mxdwdrv_x86.dll,COPYFLG_NOSKIP
+XPSSVCS.dll,XPSSVCS_x86.dll,COPYFLG_NOSKIP
+[SourceDisksFiles]
+hpmoC12A_x86PipelineConfig.xml=0
+hpmoC12A_x86Cfg.xml=0
+hpmoC12A_x86.ini=0
+hpb6sy6536_x86xps.dll=0
+hpb6sy6536_x86hybrasto.dll=0
+hpb6sy6536_x86gui.dll=0
+hpb6sy6536_x86enus.dll=0
+hpb6sy6536_x86dlg.dll=0
+hpb6sy6536_x86help.cab=0
+hpb6sy6536datamap.xml=0
+hpb6sy6536x86_buio.dll=0
+hpb6sy6536x86_buiodm.dll=0
+hpb6sy6536x86_coins.dll=0
+hpb6sy6536_x86hpfime53.dll=0
+hpb6sy6536_x86EasyColorPrefilter.dll=0
+hpb6sy6536_x86PdsmqConnector.exe=0
+hpb6sy6536_x86PdsmqConnector.PdsmqConfig.xml=0
+hpb6sy6536_x86ewdm.xml=0
+mxdwdrv_x86.dll=0
+XPSSVCS_x86.DLL=0
+hpinkcoic12a.dll=101
+hpinkstsc12aLM.dll=101
+hpinkstsc12a.dll=101
+hpinkinsc12a.exe=101
+[SourceDisksNames]
+0=%DISK%,,,.
+101=%DISK%,,,\i386
+[PrinterPackageInstallation.x86]
+PackageAware=TRUE
+[OEM.NTamd64]
+[DestinationDirs]
+DefaultDestDir=66000
+COINST_FILES=11             ; Copy CoInstaller files to system32
+LM_FILES=66002              ; Copy LM files to driver folder for Vista and beyond
+[Strings]
+OEM="hp"
+PRINTER1="HP LaserJet Pro M404-M405 PCL 6 (V3)"
+PRINTER2="HP LaserJet Pro M304-M305 PCL 6 (V3)"
+DISK="HP LaserJet Pro M304-M305 PCL 6 (V3) Printer Drivers disk"
+[Strings.0411]
+OEM="hp"
+PRINTER1="HP LaserJet Pro M404-M405 PCL 6 (V3)"
+PRINTER2="HP LaserJet Pro M304-M305 PCL 6 (V3)"
+DISK="HP LaserJet Pro M304-M305 PCL 6 (V3) Printer Drivers disk"
+[HP]
+[INSTALL_SECTION1.CoInstallers]
+AddReg=hp_CoInstaller_LJ405_addReg
+CopyFiles=COINST_FILES
+[INSTALL_SECTION1.Services]
+AddService=,0x2    ; no value for the service name
+[hp_CoInstaller_LJ405_addReg]
+HKR,,CoInstallers32,0x00010000,"hpinkcoic12a.dll,CoDeviceInstall"
+HKR,,SoftwareRegPath,,"Software\HP\InstalledProducts\{A9DB046D-3AE9-4EF8-B62F-6EB209231E58}"
+HKR,,ModelName,,"HP LaserJet Pro M404-M405"
+[SourceInfo]
+SourceDirectory=%1%
+[COINST_FILES]
+hpinkcoic12a.dll
+hpinkinsc12a.exe
+[LM_FILES]
+hpinkstsc12aLM.dll
+[LMDRV_FILES]
+hpinkstsc12aLM.dll
+hpinkstsc12a.dll

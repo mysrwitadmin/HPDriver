@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataMaps xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\..\..\src\DataModel\DataMap.xsd">
+  <!--Version 3.21 -->
+  <XMLDataMap Protocol="LEDM">
+    <StaticDataItem Name="Protocol">LEDM</StaticDataItem>
+    <DataItem Prefix="mhdyn" Name="Tray3_Installed" URI="ledm:hpLedmMediaHandlingDyn" XPath="//mhdyn:MediaHandlingDyn/mhdyn:InputTray[2]/dd:InputBin" Transient="false" LifeSpan="300">
+      <Conversion Contains="Tray3" Value="Installed" />
+      <Conversion Contains="default" Value="NotInstalled" />
+    </DataItem>
+    <DataItem Prefix="prdcfgdyn" Name="DuplexUnit_Installed" URI="ledm:hpLedmProductConfigDyn" XPath="//dd:DuplexUnit" Transient="false" LifeSpan="300">
+      <Conversion Contains="Installed" Value="Installed" />
+      <Conversion Contains="NotInstalled" Value="NotInstalled" />
+    </DataItem>
+    <DataItem Prefix="prdcfgdyn" Name="Job_Storage_Installed" URI="/StoredJobs/Config" XPath="//sj:StoredJobsEnabled" Transient="false" LifeSpan="300">
+      <Conversion Contains="true" Value="Installed" />
+      <Conversion Contains="false" Value="NotInstalled" />
+    </DataItem>
+  </XMLDataMap>
+  <XMLDataMap Protocol="WS">
+    <StaticDataItem Name="Protocol">WS</StaticDataItem>
+    <DataItem Prefix="PrinterDescription" Name="PrintContractVersionMajor0_Installed" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:PCVersion/hpprt:Major">
+      <Conversion Contains="0" Value="Installed" />
+      <Conversion Contains="default" Value="NotInstalled" />
+    </DataItem>
+    <DataItem Prefix="PrinterDescription" Name="PrintContractVersionMinor6_Installed" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//hpprt:PCVersion/hpprt:Minor">
+      <Conversion Contains="6" Value="Installed" />
+      <Conversion Contains="default" Value="NotInstalled" />
+    </DataItem>
+    <DataItem Prefix="PrinterConfiguration" Name="DuplexUnit_Installed" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:DuplexerInstalled">
+      <Conversion Contains="true" Value="Installed" />
+      <Conversion Contains="false" Value="NotInstalled" />
+      <Conversion Contains="default" Value="NotInstalled" />
+    </DataItem>
+    <DataItem Prefix="PrinterConfiguration" Name="Tray3_Installed" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:InputBinEntry[@Name='Tray 3' or @Name='Tray3']/@Name">
+      <Conversion Contains="Tray 3" Value="Installed" />
+      <Conversion Contains="Tray3" Value="Installed" />
+      <Conversion Contains="default" Value="NotInstalled" />
+    </DataItem>
+    <DataItem Prefix="PrinterConfiguration" Name="Job_Storage_Installed" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:StorageEntry/hpprt:Available">
+      <Conversion Contains="true" Value="Installed" />
+      <Conversion Contains="default" Value="Not-Installed" />
+    </DataItem>
+    <DataItem Prefix="PrinterConfiguration" Name="Mopier" URI="urn:hp:imaging:con:service:device:DeviceService" XPath="//wprt:CollationSupported">
+      <Conversion Contains="true" Value="Installed" />
+      <Conversion Contains="default" Value="Not-Installed" />
+    </DataItem>
+  </XMLDataMap>
+  <OIDDataMap>
+    <StaticDataItem Name="Protocol">OID</StaticDataItem>
+    <DataItem Name="Tray3_Installed" OID="1.3.6.1.2.1.43.8.2.1.13.1.3">
+      <Conversion Contains="Tray 3" Value="Installed" />
+      <Conversion Contains="default" Value="Not-Installed" />
+    </DataItem>
+    <NextDataItem Prefix="cfg" Name="HolePunch_Installed" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.1.4.5.2.5" Count="3" />
+    <DataItem GroupID="1.1.1.1.1.1.1.2" Name="DuplexUnit_Installed" OID="1.3.6.1.2.1.43.13.4.1.9.1.2">
+      <Conversion Contains="4" Value="Installed" />
+      <Conversion Contains="3" Value="Installed" />
+      <Conversion Contains="default" Value="Not-Installed" />
+    </DataItem>
+    <DataItem Prefix="cfg" Name="Mopier" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.1.2.42.0">
+      <Conversion Contains="00000001" Value="Installed" />
+      <Conversion Contains="default" Value="NotInstalled" />
+    </DataItem>
+    <DataItem Prefix="cfg" Name="Job_Storage_Installed" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.1.6.1.21.0">
+      <Conversion Contains="1" Value="Installed" />
+      <Conversion Contains="default" Value="NotInstalled" />
+    </DataItem>
+    <DataItem Prefix="cfg" Name="PrintContractVersionMajor0_Installed" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.4.1.1.41.0">
+      <Conversion Contains="0" Value="Installed" />
+      <Conversion Contains="default" Value="Not-Installed" />
+    </DataItem>
+    <DataItem Prefix="cfg" Name="PrintContractVersionMinor6_Installed" OID="1.3.6.1.4.1.11.2.3.9.4.2.1.4.1.1.42.0">
+      <Conversion Contains="6" Value="Installed" />
+      <Conversion Contains="default" Value="Not-Installed" />
+    </DataItem>
+  </OIDDataMap>
+  <IPPDataMap>
+    <StaticDataItem Name="Protocol">IPP</StaticDataItem>
+    <DataItem Name="Tray3_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300">
+      <Conversion Contains="Tray 3" Value="Installed" />
+      <Conversion Contains="default" Value="NotInstalled" />
+    </DataItem>
+    <DataItem Prefix="cfg" Name="DuplexUnit_Installed" AttributeID="sides-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300">
+      <Conversion Contains="two-sided-long-edge" Value="Installed" />
+      <Conversion Contains="two-sided-short-edge" Value="Installed" />
+      <Conversion Contains="default" Value="Not-Installed" />
+    </DataItem>
+    <DataItem Name="Mopier" AttributeID="multiple-document-handling-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300">
+      <Conversion Contains="separate-documents-collated-copies" Value="Supported" />
+      <Conversion Contains="default" Value="Not-Supported" />
+    </DataItem>
+    <DataItem Name="Job_Storage_Installed" AttributeID="hp-save-job-storage-available" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300">
+      <Conversion Contains="1" Value="Installed" />
+      <Conversion Contains="default" Value="NotInstalled" />
+    </DataItem>
+    <DataItem Prefix="cfg" Name="PrintContractVersionMajor0_Installed" AttributeID="hp-pc-version-major" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300">
+      <Conversion Contains="0" Value="Installed" />
+      <Conversion Contains="default" Value="NotInstalled" />
+    </DataItem>
+    <DataItem Prefix="cfg" Name="PrintContractVersionMinor6_Installed" AttributeID="hp-pc-version-minor" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300">
+      <Conversion Contains="6" Value="Installed" />
+      <Conversion Contains="default" Value="NotInstalled" />
+    </DataItem>
+    <!-- CR61067 Facing issues with K30 Onyx,agate,Keystone device wrt to Output bins. Added the support of PC hp-outputbins-supported to know the output bins supported on the device -->
+    <!-- Need a requirement to support both PC way and non PC way to know the output bins support on the device. For now we will comment out non PC queries for the output tray support -->
+    <!--<DataItem Prefix="cfg" Name="Outputbins_Mode" AttributeID="printer-output-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300">
+	  <Conversion Contains="tray-1" Value="Installed" />
+	  <Conversion Contains="mailbox-1" Value="Installed" />
+	  <Conversion Contains="mailbox-2" Value="Installed" />
+	  <Conversion Contains="mailbox-3" Value="Installed" />
+	  <Conversion Contains="mailbox-4" Value="Installed" />
+	  <Conversion Contains="mailbox-5" Value="Installed" />
+	  <Conversion Contains="mailbox-6" Value="Installed" />
+	  <Conversion Contains="stacker-1" Value="Installed" />
+	  <Conversion Contains="Bin0" Value="Installed" />
+	  <Conversion Contains="Bin1" Value="Installed" />
+	  <Conversion Contains="Bin2" Value="Installed" />
+	  <Conversion Contains="auto" Value="Installed" />
+	  <Conversion Contains="default" Value="NotInstalled" /> 
+	</DataItem>
+	<DataItem Prefix="cfg" Name="Outputbin1_Type" AttributeID="printer-output-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300">
+	  <Conversion Contains="tray-1" Value="Bin0" />
+	  <Conversion Contains="mailbox-1" Value="Mailbox1" />
+	  <Conversion Contains="stacker-1" Value="Stacker1" />
+	  <Conversion Contains="Engine-optional1" Value="Engine-optional1" />
+      <Conversion Contains="removableBin" Value="Bin0" />
+	  <Conversion Contains="Bin1" Value="Bin1" />
+	  <Conversion Contains="Bin2" Value="Bin2" />
+	  <Conversion Contains="default" Value="NotInstalled" /> 
+	</DataItem>
+	<DataItem Prefix="cfg" Name="Outputbin2_Type" AttributeID="printer-output-tray" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false"  LifeSpan="300" >		 
+	  <Conversion Contains="mailbox-2" Value="Mailbox2"/>
+	  <Conversion Contains="stacker-1" Value="Stacker1" />
+	  <Conversion Contains="Engine-optional1" Value="Engine-optional1" />
+	  <Conversion Contains="removableBin" Value="Engine-optional1" />
+	  <Conversion Contains="Bin1" Value="Bin1" />
+	  <Conversion Contains="Bin2" Value="Bin2" />
+	  <Conversion Contains="default" Value="NotInstalled"/>
+	</DataItem>
+	<DataItem Prefix="cfg" Name="Outputbin3_Type" AttributeID="printer-output-tray" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false"  LifeSpan="300" >		  
+	  <Conversion Contains="mailbox-3" Value="Mailbox3"/>
+	  <Conversion Contains="stacker-1" Value="Stacker1" />
+	  <Conversion Contains="Engine-optional1" Value="Engine-optional1" />
+	  <Conversion Contains="removableBin" Value="Engine-optional1" />
+	  <Conversion Contains="Bin1" Value="Bin1" />
+	  <Conversion Contains="Bin2" Value="Bin2" />
+	  <Conversion Contains="auto" Value="Bin0" />
+	  <Conversion Contains="default" Value="NotInstalled"/>
+	</DataItem>
+	<DataItem Prefix="cfg" Name="Outputbin4_Type" AttributeID="printer-output-tray" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false"  LifeSpan="300" >		  
+	  <Conversion Contains="mailbox-4" Value="Mailbox4"/>
+	  <Conversion Contains="stacker-1" Value="Stacker1" />
+	  <Conversion Contains="Engine-optional1" Value="Engine-optional1" />
+	  <Conversion Contains="removableBin" Value="Engine-optional1" />
+	  <Conversion Contains="Bin1" Value="Bin1" />
+	  <Conversion Contains="Bin2" Value="Bin2" />
+	  <Conversion Contains="auto" Value="Bin0" />
+	  <Conversion Contains="default" Value="NotInstalled"/>
+	</DataItem>
+	<DataItem Prefix="cfg" Name="Outputbin5_Type" AttributeID="printer-output-tray" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false"  LifeSpan="300" >		  
+	  <Conversion Contains="mailbox-5" Value="Mailbox5"/>
+	  <Conversion Contains="stacker-1" Value="Stacker1" />
+	  <Conversion Contains="Engine-optional1" Value="Engine-optional1" />
+	  <Conversion Contains="removableBin" Value="Engine-optional1" />
+	  <Conversion Contains="Bin1" Value="Bin1" />
+	  <Conversion Contains="Bin2" Value="Bin2" />
+	  <Conversion Contains="auto" Value="Bin0" />
+	  <Conversion Contains="default" Value="NotInstalled"/>
+	</DataItem>
+	<DataItem Prefix="cfg" Name="Outputbin6_Type" AttributeID="printer-output-tray" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false"  LifeSpan="300" >		  
+	  <Conversion Contains="mailbox-6" Value="Mailbox6"/>
+	  <Conversion Contains="stacker-1" Value="Stacker1" />
+	  <Conversion Contains="Engine-optional1" Value="Engine-optional1" />
+	  <Conversion Contains="removableBin" Value="Engine-optional1" />
+	  <Conversion Contains="Bin1" Value="Bin1" />
+	  <Conversion Contains="Bin2" Value="Bin2" />
+	  <Conversion Contains="auto" Value="Bin0" />
+	  <Conversion Contains="default" Value="NotInstalled"/>
+	</DataItem> -->
+    <!-- PC-Way query of hp-outputbins-supported -->
+  </IPPDataMap>
+</DataMaps>
